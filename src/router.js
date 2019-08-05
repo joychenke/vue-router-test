@@ -27,15 +27,65 @@ export default new Router({
     },
     {
       path: "/basicInfoNameView",
-      name: "basicInfoNameView",
-      /* component: () => import ("./views/Basic/BasicInfoNameView.vue") */
-      components: {
-        default: aboveView,
-        middle: middleView,
-        below: belowView            
-      }
-    }
-    ,{
+      name: "basicInfoNameView",  
+      /* BasicInfoNameView 页面中，有3个路由出口（router-view） */    
+      component: () => import ("./views/Basic/BasicInfoNameView.vue"),
+      // redirect: '/basicInfoNameView/nameViews',
+      children: [
+        {
+          path: "nameViews",
+          name: "nameViews",
+          components: {
+            default: aboveView,
+            middle: middleView,
+            below: belowView            
+          }
+        }
+      ]
+    },{
+      path: "/route",
+      name: "route",
+      component: () => import ("./views/Basic/BasicInfoRoute.vue"),
+      children: [
+        {
+          path: "dynamic/:id",
+          name: "dynamic",
+          component: () => import ("./views/Basic/BasicInfoRouteDynamic.vue")
+        },
+        {
+          path: "embed",
+          /* name: "embed", */
+          component: () => import ("./views/Basic/BasicInfoRouteEmbed.vue"),
+          children: [
+            {
+              path: "",
+              name: "defaultEmbed",
+              alias: "aliasEmbed",
+              /* redirect: {name: "basicInfoNameView"}, */
+              component: () => import ("./views/Basic/BasicInfoRouteEmbedDefault.vue")
+            },
+            {
+              path: "oneEmbed",
+              name: "oneEmbed",              
+              component: () => import ("./views/Basic/BasicInfoRouteEmbedOne.vue")
+            }            
+          ]
+        },
+        {
+          path: "params",
+          name: "params",
+          component: () => import ("./views/Basic/BasicInfoRouteParams.vue"),
+          children: [
+            {
+              path: "propBoolean/:id",
+              name: "propBoolean",
+              component: () => import ("./views/Basic/BasicInfoRouteParamsBoolean.vue"),
+              props: true
+            }
+          ]
+        }
+      ]
+    },{
       path: "*",
       name: "empty",
       component: () => import ("./views/Empty.vue")

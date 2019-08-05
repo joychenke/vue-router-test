@@ -1,7 +1,7 @@
 <template>
   <div class="basicInfo">
     <el-button type="text" @click="handleNameView">命名视图</el-button>
-    <el-button type="text" @click="handleNestView">嵌套视图</el-button>
+    <el-button type="text" @click="handleRouteObj">路由对象</el-button>
     <router-view name="default"></router-view>
     <router-view name="middle"></router-view>
     <router-view name="below"></router-view>
@@ -11,6 +11,7 @@
 import { log } from 'util';
 
 export default {
+  name: "basicInfo",
   data(){
     return {
 
@@ -21,8 +22,8 @@ export default {
       this.$router.push({name: "basicInfoNameView"})
       
     },
-    handleNestView(){
-      console.log("view");
+    handleRouteObj(){
+      this.$router.push({name: "route"})
       
     }
   }
