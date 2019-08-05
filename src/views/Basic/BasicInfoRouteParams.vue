@@ -17,11 +17,12 @@ export default {
   methods: {
     handlePropBoolean(){
       this.count ++
+      // 两种写法
       // this.$router.push(`/route/params/propBoolean/${this.count}`)
       this.$router.push({name: "propBoolean", params: {id: `${this.count}`}})
     },
     handlePropObj(){
-
+      this.$router.push({name: "propObj"})
     },
     handlePropFunc(){
 

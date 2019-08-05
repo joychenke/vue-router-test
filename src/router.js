@@ -81,6 +81,12 @@ export default new Router({
               name: "propBoolean",
               component: () => import ("./views/Basic/BasicInfoRouteParamsBoolean.vue"),
               props: true
+            }, 
+            {
+              path: "propObj",
+              name: "propObj",
+              component: () => import("./views/Basic/BasicInfoRouteParamsObj.vue"),
+              props: {btnType: "function"}
             }
           ]
         }
