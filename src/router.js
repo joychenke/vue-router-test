@@ -86,7 +86,7 @@ export default new Router({
               path: "propObj",
               name: "propObj",
               component: () => import("./views/Basic/BasicInfoRouteParamsObj.vue"),
-              props: {btnType: "function"}
+              props: {btnType: "function", id: "123"}
             }
           ]
         }

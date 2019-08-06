@@ -1,6 +1,6 @@
 <template>
   <div>
-    prop 传参是对象 {{btnType}}
+    prop 传参是对象 btnType: {{btnType}},id: {{id}}
   </div>
 </template>
 <script>
@@ -11,7 +11,8 @@ export default {
     }
   },
   props: {
-    btnType: { type: String}
+    btnType: { type: String},
+    id: {type: String}
   }
 }
 </script>
