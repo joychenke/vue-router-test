@@ -4,7 +4,7 @@
     <el-button round type="success" @click="handlePropBoolean">props传Boolean</el-button>
     <el-button round type="success" @click="handlePropObj">props传对象</el-button>
     <el-button round type="success" @click="handlePropFunc">props传函数</el-button>  
-    <router-view></router-view>  
+    <router-view class="view"></router-view>  
   </div>
 </template>
 <script>
@@ -25,13 +25,15 @@ export default {
       this.$router.push({name: "propObj"})
     },
     handlePropFunc(){
-
+      this.$router.push({name: "propFuncs", query: { plan: "private" } })
     }
   }
 }
 </script>
 <style lang="less">
-
+.view{
+  margin-top: 20px;
+}
 </style>
 
 

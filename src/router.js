@@ -86,7 +86,13 @@ export default new Router({
               path: "propObj",
               name: "propObj",
               component: () => import("./views/Basic/BasicInfoRouteParamsObj.vue"),
-              props: {btnType: "function", id: "123"}
+              props: {btnType: "function", isFromRouter: true}
+            },
+            {
+              path: "propFuncs",
+              name: "propFuncs",
+              component: ()=> import("./views/Basic/BasicInfoRouteParamsFuns.vue"),
+              props: (route) => ({query: route.query.plan})
             }
           ]
         }
